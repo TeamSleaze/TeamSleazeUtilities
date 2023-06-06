@@ -1,0 +1,17 @@
+{
+  "name": "com.teamsleaze.utilities",
+  "version": "0.1.0",
+  "category": "Utility",
+  "displayName": "TeamSleaze Utilities",
+  "description": "Utility Package",
+  "unity": "2021.3",
+  "author": {
+    "name": "TeamSleaze",
+    "email": "sleazestiks.contact@gmail.com",
+    "url": "https://sleazestiks.github.io/"
+  },
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  },
+  "hideInEditor": false
+}
