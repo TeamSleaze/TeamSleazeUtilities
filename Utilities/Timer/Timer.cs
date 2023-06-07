@@ -18,12 +18,12 @@ namespace TeamSleaze.Utilities.Timer
             currentTimeInt = Mathf.FloorToInt(currentTime);
         }
 
-        protected IEnumerator CallEvent(Delegate e, float time)
+        protected IEnumerator CallEvent(Delegate e, float time, string uid)
         {
             while (true)
             {
                 yield return new WaitForSeconds(time);
-                e.DynamicInvoke();
+               e.DynamicInvoke(uid);
             }
         }
 
