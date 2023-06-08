@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+
+using UnityEditor;
 
 namespace TeamSleaze.Utilities
 {
@@ -31,3 +33,5 @@ namespace TeamSleaze.Utilities
         }
     }
 }
+
+#endif
