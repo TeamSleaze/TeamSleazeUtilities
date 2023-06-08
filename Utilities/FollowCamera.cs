@@ -1,4 +1,5 @@
-﻿using TeamSleaze.Utilities;
+﻿using TeamSleaze.Internal;
+using TeamSleaze.Utilities;
 using UnityEngine;
 
 namespace TeamSleaze.Assets.Utilities
@@ -9,6 +10,8 @@ namespace TeamSleaze.Assets.Utilities
 
         [SerializeField]
         private bool followCamera = true;
+        [SerializeField]
+        private UpdateTime updateTime = UpdateTime.LateUpdate;
 
 
         private void Start()
@@ -16,9 +19,20 @@ namespace TeamSleaze.Assets.Utilities
             mainCamera = Helpers.MainCamera;
         }
 
+        private void Update()
+        {
+            if (followCamera && updateTime == UpdateTime.Update) 
+            {
+                transform.position = mainCamera.transform.position;
+            }
+        }
+
         void LateUpdate()
         {
-            if (followCamera) transform.position = mainCamera.transform.position;
+            if (followCamera && updateTime == UpdateTime.LateUpdate)
+            {
+                transform.position = mainCamera.transform.position;
+            }
         }
 
     }

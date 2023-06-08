@@ -1,22 +1,16 @@
-﻿ using UnityEngine;
+﻿using TeamSleaze.Internal;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace TeamSleaze.Utilities
 {
     public class Orphan : MonoBehaviour
     {
-        public enum Time
-        {
-            Awake = 0,
-            Start = 1,
-            Event = 2
-        }
-
         [SerializeField] 
         private bool ShouldThisOrphan = false;
 
         [Space(10)] 
-        public Time WhenShouldThisOrphan;
+        public UpdateTime WhenShouldThisOrphan;
 
         [SerializeField, HideInInspector] 
         private UnityEvent Event;
@@ -27,7 +21,7 @@ namespace TeamSleaze.Utilities
 
         private void Awake()
         {
-            if (ShouldThisOrphan && WhenShouldThisOrphan == Time.Awake)
+            if (ShouldThisOrphan && WhenShouldThisOrphan == UpdateTime.Awake)
             {
                 gameObject.transform.SetParent(null, WorldPositionStays);
             }
@@ -35,11 +29,11 @@ namespace TeamSleaze.Utilities
 
         private void Start()
         {
-            if (ShouldThisOrphan && WhenShouldThisOrphan == Time.Start)
+            if (ShouldThisOrphan && WhenShouldThisOrphan == UpdateTime.Start)
             {
                 gameObject.transform.SetParent(null, WorldPositionStays);
             }
-            else if (ShouldThisOrphan && WhenShouldThisOrphan == Time.Event)
+            else if (ShouldThisOrphan && WhenShouldThisOrphan == UpdateTime.Event)
             {
                 Event.AddListener(() => ExecuteOnEventCall());
             }

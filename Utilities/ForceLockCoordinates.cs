@@ -1,4 +1,5 @@
 ﻿using System;
+using TeamSleaze.Internal;
 using UnityEngine;
 
 namespace TeamSleaze.Utilities
@@ -10,13 +11,6 @@ namespace TeamSleaze.Utilities
         X = 1, 
         Y = 2, 
         Z = 4 
-    }
-
-    public enum UpdateTime
-    {
-        Update = 0,
-        FixedUpdate = 1,
-        LateUpdate = 2
     }
 
     [RequireComponent(typeof(Transform))]
