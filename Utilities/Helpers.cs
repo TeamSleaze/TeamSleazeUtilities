@@ -438,5 +438,29 @@ namespace TeamSleaze.Utilities
 
             return obj.transform.parent.gameObject.IsParentedBy(parent);
         }
+
+
+        public static void LockXPos(this Transform transform, float lockToValue)
+        {
+            Vector3 pos = transform.position;
+            pos.x = lockToValue;
+            transform.position = pos;
+        }
+
+
+        public static void LockYPos(this Transform transform, float lockToValue)
+        {
+            Vector3 pos = transform.position;
+            pos.y = lockToValue;
+            transform.position = pos;
+        }
+
+
+        public static void LockZPos(this Transform transform, float lockToValue)
+        {
+            Vector3 pos = transform.position;
+            pos.z = lockToValue;
+            transform.position = pos;
+        }
     }
 }
