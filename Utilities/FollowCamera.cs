@@ -13,7 +13,7 @@ namespace TeamSleaze.Assets.Utilities
 
         private void Start()
         {
-            Camera mainCamera = Helpers.MainCamera;
+            mainCamera = Helpers.MainCamera;
         }
 
         void LateUpdate()
