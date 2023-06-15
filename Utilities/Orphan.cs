@@ -6,22 +6,18 @@ namespace TeamSleaze.Utilities
 {
     public class Orphan : MonoBehaviour
     {
-        [SerializeField] 
-        private bool ShouldThisOrphan = false;
-
         [Space(10)] 
         public UpdateTime WhenShouldThisOrphan;
 
-        [SerializeField, HideInInspector] 
-        private UnityEvent Event;
+        [HideInInspector]
+        public UnityEvent Event;
 
-        [SerializeField] 
-        private bool WorldPositionStays = true;
+        public bool WorldPositionStays = true;
 
 
         private void Awake()
         {
-            if (ShouldThisOrphan && WhenShouldThisOrphan == UpdateTime.Awake)
+            if (WhenShouldThisOrphan == UpdateTime.Awake)
             {
                 gameObject.transform.SetParent(null, WorldPositionStays);
             }
@@ -29,11 +25,11 @@ namespace TeamSleaze.Utilities
 
         private void Start()
         {
-            if (ShouldThisOrphan && WhenShouldThisOrphan == UpdateTime.Start)
+            if (WhenShouldThisOrphan == UpdateTime.Start)
             {
                 gameObject.transform.SetParent(null, WorldPositionStays);
             }
-            else if (ShouldThisOrphan && WhenShouldThisOrphan == UpdateTime.Event)
+            else if (WhenShouldThisOrphan == UpdateTime.Event)
             {
                 Event.AddListener(() => ExecuteOnEventCall());
             }
